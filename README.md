@@ -59,4 +59,4 @@
 Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.
 
 
-![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/ELK/img/Kebana.png)`
+![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/ELK/img/filebeat.png)`
