@@ -43,6 +43,7 @@ $ pip install pika
 
 Для закрепления материала можете попробовать модифицировать скрипты, чтобы поменять название очереди и отправляемое сообщение.
 ![Название скриншота 2](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/Hello.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/cons.png)`
 
 
@@ -72,9 +73,14 @@ $ rabbitmqadmin get queue='hello'
 
 Приложите скриншот результата работы второго скрипта.
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/node.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/status1.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/status2.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/get1.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/get2.png)`
+
 ![Название скриншота](https://github.com/drumspb/sys-pattern-homework/blob/RabbitMQ/img/final.png)`
 
