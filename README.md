@@ -50,17 +50,17 @@
 
 3. Структурные подразделения
 
-   structural_unit_id, первичный ключ, serial,
+   structural_unit_id первичный ключ serial,
    Наименование структурного подразделения varchar(50)
 
 4. Адрес филиала
 
-   address_id, первичный ключ, serial,
+   address_id первичный ключ serial,
    Адрес филиала varchar(50)
 
 5. Проекты
 
-   address_id, первичный ключ, serial,
+   progect_id первичный ключ serial,
    Наименование проэкта varchar(50)
 
 6. Сотрудники
@@ -70,16 +70,16 @@
    имя varchar(50),
    отчество varchar(50),
    дата_найма date,
-   position_id integer
-   type_of_unit_id integer
-   structural_unit_id integer
-   address_id integer
-   address_id integer
+   position_id integer,
+   type_of_unit_id integer,
+   structural_unit_id integer,
+   address_id integer,
+   progect_id_id integer,
 
 8. Оклад
 
-   salary_id, первичный ключ, serial,
-   идентификатор_сотрудника (officer_id) integer
+   salary_id первичный ключ serial,
+   идентификатор_сотрудника (officer_id) integer,
    Оклад numeric(15, 2)
  
 
