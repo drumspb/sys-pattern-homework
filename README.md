@@ -41,45 +41,61 @@
 1. Должность 
 
    position_id, первичный ключ, serial,
+   
    Наименование должности varchar(50)
 
-2. Типы подразделений
+3. Типы подразделений
 
    type_of_unit_id, первичный ключ, serial,
+   
    Наименование типа подразделения varchar(50)
 
-3. Структурные подразделения
+5. Структурные подразделения
 
    structural_unit_id первичный ключ serial,
+   
    Наименование структурного подразделения varchar(50)
 
-4. Адрес филиала
+7. Адрес филиала
 
    address_id первичный ключ serial,
+   
    Адрес филиала varchar(100)
 
-5. Проекты
+9. Проекты
 
    progect_id первичный ключ serial,
+   
    Наименование проэкта varchar(100)
 
-6. Сотрудники
+11. Сотрудники
 
    officer_id первичный ключ, serial,
+   
    фамилия varchar(50),
+   
    имя varchar(50),
+   
    отчество varchar(50),
+   
    дата_найма date,
+   
    position_id integer,
+   
    type_of_unit_id integer,
+   
    structural_unit_id integer,
+   
    address_id integer,
+   
    progect_id_id integer,
 
-8. Оклад
+11. Оклад
 
    salary_id первичный ключ serial,
+   
    идентификатор_сотрудника (officer_id) integer,
+   
    Оклад numeric(15, 2)
  
 
