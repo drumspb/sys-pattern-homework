@@ -84,7 +84,7 @@
    
     type_of_unit_id integer,
    
-   s tructural_unit_id integer,
+    structural_unit_id integer,
    
     address_id integer,
    
