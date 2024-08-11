@@ -70,32 +70,32 @@
 
 11. Сотрудники
 
-   officer_id первичный ключ, serial,
+    officer_id первичный ключ, serial,
    
-   фамилия varchar(50),
+    фамилия varchar(50),
    
-   имя varchar(50),
+    имя varchar(50),
    
-   отчество varchar(50),
+    отчество varchar(50),
    
-   дата_найма date,
+    дата_найма date,
    
-   position_id integer,
+    position_id integer,
    
-   type_of_unit_id integer,
+    type_of_unit_id integer,
    
-   structural_unit_id integer,
+   s tructural_unit_id integer,
    
-   address_id integer,
+    address_id integer,
    
-   progect_id_id integer,
+    progect_id_id integer,
 
 11. Оклад
 
-   salary_id первичный ключ serial,
+    salary_id первичный ключ serial,
    
-   идентификатор_сотрудника (officer_id) integer,
+    идентификатор_сотрудника (officer_id) integer,
    
-   Оклад numeric(15, 2)
+    Оклад numeric(15, 2)
  
 
