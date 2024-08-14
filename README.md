@@ -38,64 +38,64 @@
 
 `Приведите ответ в свободной форме........`
 
-1. Должность 
+1. Должность
 
-   position_id, первичный ключ, serial,
-   
-   Наименование должности varchar(50)
+position_id, первичный ключ, serial,
 
-3. Типы подразделений
+Наименование должности varchar(50),
 
-   type_of_unit_id, первичный ключ, serial,
-   
-   Наименование типа подразделения varchar(50)
+salary_id integer
 
-5. Структурные подразделения
+2. Типы подразделений
 
-   structural_unit_id первичный ключ serial,
-   
-   Наименование структурного подразделения varchar(50)
+type_of_unit_id, первичный ключ, serial,
 
-7. Адрес филиала
+Наименование типа подразделения varchar(50)
 
-   address_id первичный ключ serial,
-   
-   Адрес филиала varchar(100)
+3. Структурные подразделения
 
-9. Проекты
+structural_unit_id первичный ключ serial,
 
-   progect_id первичный ключ serial,
-   
-   Наименование проэкта varchar(100)
+Наименование структурного подразделения varchar(50),
 
-11. Сотрудники
+type_of_unit_id integer
 
-    officer_id первичный ключ, serial,
-   
-    фамилия varchar(50),
-   
-    имя varchar(50),
-   
-    отчество varchar(50),
-   
-    дата_найма date,
-   
-    position_id integer,
-   
-    type_of_unit_id integer,
-   
-    structural_unit_id integer,
-   
-    address_id integer,
-   
-    progect_id_id integer,
+4. Адрес филиала
 
-11. Оклад
+address_id первичный ключ serial,
 
-    salary_id первичный ключ serial,
-   
-    идентификатор_сотрудника (officer_id) integer,
-   
-    Оклад numeric(15, 2)
+Адрес филиала varchar(100)
+
+5. Проекты
+
+project_id первичный ключ serial,
+
+Наименование проекта varchar(100)
+
+6. Сотрудники
+
+officer_id первичный ключ, serial,
+
+фамилия varchar(50),
+
+имя varchar(50),
+
+отчество varchar(50),
+
+дата_найма date,
+
+position_id integer,
+
+structural_unit_id integer,
+
+address_id integer,
+
+project_id integer
+
+7. Оклад
+
+salary_id первичный ключ serial,
+
+Оклад numeric(15, 2)
  
 
