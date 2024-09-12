@@ -43,18 +43,17 @@
 
 ### Решение 1
 
-1. Служба:
-21/tcp   open  ftp         vsftpd 2.3.4
+** Служба 1
+- ** 21/tcp   open  ftp         vsftpd 2.3.4
+- ** Эксплоит: https://www.exploit-db.com/exploits/49757
 
-Эксплоит: https://www.exploit-db.com/exploits/49757
+** Служба 2
+- ** 80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+- ** Эксплоит: https://www.exploit-db.com/exploits/42745
 
-2. Служба:
-80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
-Эксплоит: https://www.exploit-db.com/exploits/42745
-
-3. Служба:
-3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5
-Эксплоит: https://www.exploit-db.com/exploits/30020
+** Служба 3
+- ** 3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5
+- ** Эксплоит: https://www.exploit-db.com/exploits/30020
 
 ### Задание 2
 Проведите диагностику Metasploitable в режимах SYN, FIN, Xmas, UDP.
