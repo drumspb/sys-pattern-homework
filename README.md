@@ -48,8 +48,8 @@
 - Эксплоит: https://www.exploit-db.com/exploits/49757
 
 **Служба 2**
-- ** 80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
-- ** Эксплоит: https://www.exploit-db.com/exploits/42745
+- 80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+- Эксплоит: https://www.exploit-db.com/exploits/42745
 
 **Служба 3**
 - 3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5
