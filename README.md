@@ -46,12 +46,12 @@ https://hub.docker.com/repository/docker/drumspb/custom-nginx/general
 
 ### Задание 4
 
-![alt text](img/image5.png)
+![alt text](img/image4.png)
 
 
 ### Задание 5
 
-![alt text](img/image6.png)
+![alt text](img/image5.png)
 
 Если существуют оба файла, Compose предпочитает канонический compose.yaml.
 
@@ -67,6 +67,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 ```
+![alt text](img/image6.png)
+
 ![alt text](img/image7.png)
 
 ![alt text](img/image8.png)
