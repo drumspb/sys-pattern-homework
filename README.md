@@ -1,26 +1,50 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+Необходимо создать собственные workflow для двух типов задач: bug и остальные типы задач. Задачи типа bug должны проходить жизненный цикл:
 
+1. Open -> On reproduce.
+2. On reproduce -> Open, Done reproduce.
+3. Done reproduce -> On fix.
+4. On fix -> On reproduce, Done fix.
+5. Done fix -> On test.
+6. On test -> On fix, Done.
+7. Done -> Closed, Open.
 
-### Инструкция по выполнению домашнего задания
+Остальные задачи должны проходить по упрощённому workflow:
 
-   1. Сделайте `fork` данного репозитория к себе в Github и переименуйте его по названию или номеру занятия, например, https://github.com/имя-вашего-репозитория/git-hw или  https://github.com/имя-вашего-репозитория/7-1-ansible-hw).
-   2. Выполните клонирование данного репозитория к себе на ПК с помощью команды `git clone`.
-   3. Выполните домашнее задание и заполните у себя локально этот файл README.md:
-      - впишите вверху название занятия и вашу фамилию и имя
-      - в каждом задании добавьте решение в требуемом виде (текст/код/скриншоты/ссылка)
-      - для корректного добавления скриншотов воспользуйтесь [инструкцией "Как вставить скриншот в шаблон с решением](https://github.com/netology-code/sys-pattern-homework/blob/main/screen-instruction.md)
-      - при оформлении используйте возможности языка разметки md (коротко об этом можно посмотреть в [инструкции  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md))
-   4. После завершения работы над домашним заданием сделайте коммит (`git commit -m "comment"`) и отправьте его на Github (`git push origin`);
-   5. Для проверки домашнего задания преподавателем в личном кабинете прикрепите и отправьте ссылку на решение в виде md-файла в вашем Github.
-   6. Любые вопросы по выполнению заданий спрашивайте в чате учебной группы и/или в разделе “Вопросы по заданию” в личном кабинете.
-   
-Желаем успехов в выполнении домашнего задания!
-   
-### Дополнительные материалы, которые могут быть полезны для выполнения задания
-
-1. [Руководство по оформлению Markdown файлов](https://gist.github.com/Jekins/2bf2d0638163f1294637#Code)
+1. Open -> On develop.
+2. On develop -> Open, Done develop.
+3. Done develop -> On test.
+4. On test -> On develop, Done.
+5. Done -> Closed, Open.
 
 ---
+
+![image](https://github.com/user-attachments/assets/fc1cba4f-ad87-48b4-97ed-0885b7c06d5a)
+
+![image](https://github.com/user-attachments/assets/135cc0e2-bf96-4619-b55a-85d1b9c0a3cd)
+
+**Что нужно сделать**
+
+1. Создайте задачу с типом bug, попытайтесь провести его по всему workflow до Done. 
+1. Создайте задачу с типом epic, к ней привяжите несколько задач с типом task, проведите их по всему workflow до Done. 
+1. При проведении обеих задач по статусам используйте kanban. 
+1. Верните задачи в статус Open.
+1. Перейдите в Scrum, запланируйте новый спринт, состоящий из задач эпика и одного бага, стартуйте спринт, проведите задачи до состояния Closed. Закройте спринт.
+2. Если всё отработалось в рамках ожидания — выгрузите схемы workflow для импорта в XML. Файлы с workflow и скриншоты workflow приложите к решению задания.
+
+
+![image](https://github.com/user-attachments/assets/62e1a5fe-4d21-43db-b125-339df6ce3ddb)
+
+![image](https://github.com/user-attachments/assets/a1aee51b-1859-4650-bec0-519d8a6eaa0c)
+
+![image](https://github.com/user-attachments/assets/5d6c8c2b-c102-4891-bac1-48ced016583d)
+
+![image](https://github.com/user-attachments/assets/730606c1-32af-4157-a0a8-1d9df99e90d7)
+
+
+
+
+
+
 
 ### Задание 1
 
