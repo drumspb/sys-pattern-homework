@@ -63,9 +63,3 @@
 - NATS - для ultra-low latency
 
 ---
-
-## Итоговые рекомендации
-1. **API Gateway**: Kong (для self-hosted) или AWS API Gateway (для облака)
-2. **Брокер**: RabbitMQ (универсальный) или Kafka (для big data)
-
-[Скачать в PDF](#) | [Экспорт в DOCX](#)
