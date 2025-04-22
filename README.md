@@ -87,15 +87,3 @@
 - Grafana: лучшие возможности визуализации
 - Поддержка multi-cloud окружений
 
-## Интеграция решений
-
-```mermaid
-graph TD
-    A[GitLab CI/CD] -->|деплой| B[Kubernetes]
-    B -->|метрики| C[Prometheus]
-    B -->|логи| D[Fluent Bit]
-    C --> E[Grafana]
-    D --> F[Elasticsearch]
-    F --> G[Kibana]
-    E --> H[DevOps Team]
-    G --> H
