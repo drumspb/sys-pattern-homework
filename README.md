@@ -17,11 +17,12 @@ spec:
     image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
     ports:
     - containerPort: 8080
+```
 
 <img width="826" alt="{46FA2B1C-A142-4340-9DD4-DBC3C912628E}" src="https://github.com/user-attachments/assets/dc17767e-bead-4abf-9d6d-532ce2df2900" />
 
 
-##Задание 2. Создание Service netology-svc
+## Задание 2. Создание Service netology-svc
 
 #### Создание манифеста web-pod.yaml:
 
