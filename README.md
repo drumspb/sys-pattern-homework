@@ -57,5 +57,8 @@ spec:
     port: 80
     targetPort: 8080
 ```
+<img width="177" alt="{91A7AED8-BAB1-4DF1-9368-D1D68B3978E4}" src="https://github.com/user-attachments/assets/e7ffdff4-3ea7-4d75-97a9-67c8302d1248" />
+
+<img width="263" alt="{20D1B115-7DBC-43A9-85B6-873BC3B352A1}" src="https://github.com/user-attachments/assets/fb22c70c-352f-47cc-9a2a-378bab08b6a3" />
 
 <img width="827" alt="{572673BA-2181-4632-A988-F6706A485C0B}" src="https://github.com/user-attachments/assets/0e65ca1f-18b8-4894-b0fb-dd5ceae89d26" />
