@@ -32,7 +32,6 @@ kind: Pod
 metadata:
   name: netology-web
   labels:
-    app: echoserver
     pod-type: netology 
 spec:
   containers:
@@ -50,7 +49,6 @@ metadata:
   name: netology-svc
 spec:
   selector:
-    app: echoserver
     pod-type: netology 
   ports:
   - protocol: TCP
