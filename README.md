@@ -1,28 +1,98 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
-
-
-### Инструкция по выполнению домашнего задания
-
-   1. Сделайте `fork` данного репозитория к себе в Github и переименуйте его по названию или номеру занятия, например, https://github.com/имя-вашего-репозитория/git-hw или  https://github.com/имя-вашего-репозитория/7-1-ansible-hw).
-   2. Выполните клонирование данного репозитория к себе на ПК с помощью команды `git clone`.
-   3. Выполните домашнее задание и заполните у себя локально этот файл README.md:
-      - впишите вверху название занятия и вашу фамилию и имя
-      - в каждом задании добавьте решение в требуемом виде (текст/код/скриншоты/ссылка)
-      - для корректного добавления скриншотов воспользуйтесь [инструкцией "Как вставить скриншот в шаблон с решением](https://github.com/netology-code/sys-pattern-homework/blob/main/screen-instruction.md)
-      - при оформлении используйте возможности языка разметки md (коротко об этом можно посмотреть в [инструкции  по MarkDown](https://github.com/netology-code/sys-pattern-homework/blob/main/md-instruction.md))
-   4. После завершения работы над домашним заданием сделайте коммит (`git commit -m "comment"`) и отправьте его на Github (`git push origin`);
-   5. Для проверки домашнего задания преподавателем в личном кабинете прикрепите и отправьте ссылку на решение в виде md-файла в вашем Github.
-   6. Любые вопросы по выполнению заданий спрашивайте в чате учебной группы и/или в разделе “Вопросы по заданию” в личном кабинете.
-   
-Желаем успехов в выполнении домашнего задания!
-   
-### Дополнительные материалы, которые могут быть полезны для выполнения задания
-
-1. [Руководство по оформлению Markdown файлов](https://gist.github.com/Jekins/2bf2d0638163f1294637#Code)
+# Домашнее задание к занятию "`Хранение в K8s. Часть 2`" - `Дромашко Кирилл`
 
 ---
 
 ### Задание 1
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/local-storage/shared-data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - devops
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: 1Gi
+
+--- 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-storage-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-storage
+  template:
+    metadata:
+      labels:
+        app: shared-storage
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["/bin/sh", "-c"]
+        args: ["while true; do echo $(date) >> /shared-data/log.txt; sleep 5; done"]
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      - name: multitool
+        image: wbitt/network-multitool
+        command: ["/bin/sh", "-c"]
+        args: ["tail -f /shared-data/log.txt"]
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: local-pvc
+
+```
+![alt text]({AAE813AE-ADCC-487F-A088-497766A1AB08}.png)
+
+```
+kubectl delete deployment shared-storage-app
+kubectl delete pvc local-pvc
+```
+Политика Retain сохраняет PV и данные после удаления PVC. PV переходит в статус Released и может быть вручную очищен для повторного использования.
+
+![alt text]({BA034E97-8E21-4AB0-BEB2-249115B0DDD2}.png)
+
+Все данные на ноде сохраняются так как PV использует локальное хранилище (hostPath)
+Политика хранения Retain предотвращает автоматическое удаление
+
+![alt text]({FFFB31C6-5ECD-4352-9E89-3AAA37B9991C}.png)
+
 
 `Приведите ответ в свободной форме........`
 

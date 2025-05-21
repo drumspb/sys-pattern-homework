@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/local-storage/shared-data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - devops
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: 1Gi
+
+--- 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-storage-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-storage
+  template:
+    metadata:
+      labels:
+        app: shared-storage
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["/bin/sh", "-c"]
+        args: ["while true; do echo $(date) >> /shared-data/log.txt; sleep 5; done"]
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      - name: multitool
+        image: wbitt/network-multitool
+        command: ["/bin/sh", "-c"]
+        args: ["tail -f /shared-data/log.txt"]
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /shared-data
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: local-pvc
