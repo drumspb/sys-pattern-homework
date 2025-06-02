@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: ca.crt
+    server: https://192.168.88.151:6443
+  name: my-cluster
+contexts:
+- context:
+    cluster: my-cluster
+    user: viewer
+  name: viewer-context
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: viewer
+  user:
+    client-certificate: viewer.crt
+    client-key: viewer.key
