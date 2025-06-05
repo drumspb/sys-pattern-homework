@@ -1,0 +1,13 @@
+global:
+  namespace: default
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: nginx
+    tag: "1.25.3"  # Используем конкретную стабильную версию
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 80
