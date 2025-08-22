@@ -1,27 +1,37 @@
-# Домашнее задание к занятию "`Вычислительные мощности. Балансировщики нагрузки`" - `дромашко Кирилл Сергеевич`
+# Домашнее задание к занятию "Безопасность в облачных провайдерах" - `дромашко Кирилл Сергеевич`
 
 
-## Задание 1. Yandex Cloud 
+## Задание 1. Yandex Cloud   
 
-**Что нужно сделать**
+1. С помощью ключа в KMS необходимо зашифровать содержимое бакета:
 
-1. Создать бакет Object Storage и разместить в нём файл с картинкой:
+ - создать ключ в KMS;
+ - с помощью ключа зашифровать содержимое бакета, созданного ранее.
 
- - Создать бакет в Object Storage с произвольным именем (например, _имя_студента_дата_).
- - Положить в бакет файл с картинкой.
- - Сделать файл доступным из интернета.
- 
-2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
+ ```
+ resource "yandex_kms_symmetric_key" "bucket_key" {
+  name              = "lamp-bucket-key"
+  description       = "KMS key for bucket encryption"
+  default_algorithm = "AES_256"
+  rotation_period   = "8760h" # 1 год
+}
 
- - Создать Instance Group с тремя ВМ и шаблоном LAMP. Для LAMP рекомендуется использовать `image_id = fd827b91d99psvq5fjit`.
- - Для создания стартовой веб-страницы рекомендуется использовать раздел `user_data` в [meta_data](https://cloud.yandex.ru/docs/compute/concepts/vm-metadata).
- - Разместить в стартовой веб-странице шаблонной ВМ ссылку на картинку из бакета.
- - Настроить проверку состояния ВМ.
- 
-3. Подключить группу к сетевому балансировщику:
+# 3. Бакет Object Storage
+resource "yandex_storage_bucket" "web_bucket" {
+  bucket = "${var.bucket_name}-${formatdate("YYYYMMDD", timestamp())}"
+  acl    = "public-read"
 
- - Создать сетевой балансировщик.
- - Проверить работоспособность, удалив одну или несколько ВМ.
-4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.
+    server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        kms_master_key_id = yandex_kms_symmetric_key.bucket_key.id
+        sse_algorithm     = "aws:kms"
+      }
+    }
+  }
 
-![alt text](Screenshot_3.png)
+  website {
+    index_document = "index.html"
+  }
+}
+ ```
